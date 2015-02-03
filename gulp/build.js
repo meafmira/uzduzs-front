@@ -14,7 +14,7 @@ var $ = require('gulp-load-plugins')({
 gulp.task('partials', ['markups'], function () {
   return gulp.src([
     paths.src + '/{app,components}/**/*.html',
-    paths.tmp + '/{app,components}/**/*.html'
+    paths.tmp + '/serve/{app,components}/**/*.html'
   ])
     .pipe($.minifyHtml({
       empty: true,
@@ -22,7 +22,7 @@ gulp.task('partials', ['markups'], function () {
       quotes: true
     }))
     .pipe($.angularTemplatecache('templateCacheHtml.js', {
-      module: 'testApp'
+      module: 'kurs'
     }))
     .pipe(gulp.dest(paths.tmp + '/partials/'));
 });
@@ -77,7 +77,7 @@ gulp.task('html', ['inject', 'partials'], function () {
     .pipe($.rev())
     .pipe(jsFilter)
     .pipe($.ngAnnotate())
-    .pipe($.uglify({preserveComments: $.uglifySaveLicense}))
+    .pipe($.uglify({preserveComments: $.uglifySaveLicense, mangle: false}))
     .pipe(jsFilter.restore())
     .pipe(cssFilter)
     .pipe($.csso())
