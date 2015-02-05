@@ -6,11 +6,11 @@
     form(ng-submit="main.add(kurs)", ng-if="!main.isAdded")
       .form-group
         label.control-label Курс
-        input.form-control.input-lg(type="number", ng-model="kurs.kurs", required)
+        input.form-control.input-lg(type="number", ng-model="kurs.kurs", required, min="{{main.min}}", max="{{main.max}}")
 
       .form-group
         label.control-label Тип
-        select.form-control.input-lg(ng-model="kurs.type", required)
+        select.form-control.input-lg(ng-model="kurs.type", required, ng-change="main.changeType(kursType)")
           option(value="sell") Продажа
           option(value="buy") Покупка
 

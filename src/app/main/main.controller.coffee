@@ -13,6 +13,10 @@ class MainCtrl
       @localStorageService.set 'added', moment().format('YYYY MM DD')
       @isAdded = true
 
+  changeType: (type) ->
+    @min = @kurs[type + 'Min']
+    @max = @kurs[type + 'Max']
+
 MainCtrl.$inject = [ 'kurs', 'Kurs', 'localStorageService' ]
 
 module.exports = MainCtrl
