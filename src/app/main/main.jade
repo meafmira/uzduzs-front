@@ -10,7 +10,7 @@
 
       .form-group
         label.control-label Тип
-        select.form-control.input-lg(ng-model="kurs.type", required, ng-change="main.changeType(kursType)")
+        select.form-control.input-lg(ng-model="kurs.type", required, ng-change="main.changeType(kurs.type)")
           option(value="sell") Продажа
           option(value="buy") Покупка
 
