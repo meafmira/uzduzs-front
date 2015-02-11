@@ -3,7 +3,9 @@
   h1 Покупка: {{ main.kurs.buyAverage }}
   p
     span(ng-bind="main.kurs.todayCount")
-    | &nbsp;человек(а)
+    |  человек(а)&nbsp;
+    a(ui-sref="main.date({ date: main.today })") сегодня
+  ui-view
 .container
   .col-md-6.col-md-offset-3
     p Сервис создан людьми и для людей. Поэтому, будьте человеком, не добавляйте неверные значения.

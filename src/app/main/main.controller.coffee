@@ -1,6 +1,7 @@
 class MainCtrl
   constructor: (@kurs, @Kurs, @localStorageService) ->
     added = @localStorageService.get 'added'
+    @today = moment().format('DD-MM-YYYY')
     @isAdded = false
     if added?
       dateAdded = moment added, 'YYYY MM DD'
