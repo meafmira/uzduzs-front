@@ -3,6 +3,7 @@
   h1 Покупка: {{ main.kurs.buyAverage }}
 .container
   .col-md-6.col-md-offset-3
+    p Сервис создан людьми и для людей. Поэтому, будьте человеком, не добавляйте неверные значения.
     form(ng-submit="main.add(kurs)", ng-if="!main.isAdded")
       .form-group
         label.control-label Курс

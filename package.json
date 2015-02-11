@@ -1,7 +1,9 @@
 {
   "name": "testApp",
   "version": "0.0.1",
-  "dependencies": {},
+  "dependencies": {
+    "express": "^4.11.2"
+  },
   "browserify": {
     "transform": [
       "coffeeify"
