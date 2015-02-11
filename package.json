@@ -59,7 +59,7 @@
   },
   "scripts": {
     "test": "gulp test",
-    "preinstall": "npm install bower",
+    "preinstall": "npm install -g bower gulp",
     "postinstall": "node node_modules/bower/bin/bower install && gulp build"
   }
 }
