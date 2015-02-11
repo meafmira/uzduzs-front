@@ -2,14 +2,8 @@
   "name": "testApp",
   "version": "0.0.1",
   "dependencies": {
-    "express": "^4.11.2"
-  },
-  "browserify": {
-    "transform": [
-      "coffeeify"
-    ]
-  },
-  "devDependencies": {
+    "express": "^4.11.2",
+
     "browser-sync": "~1.7.1",
     "browserify": "^8.1.1",
     "chalk": "~0.5.1",
@@ -52,6 +46,14 @@
     "vinyl-source-stream": "^1.0.0",
     "watchify": "^2.2.1",
     "wiredep": "~2.2.0"
+  },
+  "browserify": {
+    "transform": [
+      "coffeeify"
+    ]
+  },
+  "devDependencies": {
+
   },
   "engines": {
     "node": ">=0.10.0"
