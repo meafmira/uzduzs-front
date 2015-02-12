@@ -18,7 +18,7 @@ class MainCtrl
         if today.date() == buyAdded.date() && today.month() == buyAdded.month() && today.year() == buyAdded.year()
           @isAddedBuy = true
 
-      @changeType @addKurs.type
+    @changeType @addKurs.type
 
   add: (kurs) ->
     @Kurs.post(kurs).then =>
