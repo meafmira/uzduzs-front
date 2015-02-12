@@ -28,9 +28,11 @@ class MainCtrl
       if kurs.type == 'sell'
         @isAddedSell = true
         @addKurs.type = 'buy'
+        @changeType @addKurs.type
       else
         @isAddedBuy = true
         @addKurs.type = 'sell'
+        @changeType @addKurs.type
 
   changeType: (type) ->
     @min = @kurs[type + 'Min']
