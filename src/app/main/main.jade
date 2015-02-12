@@ -17,6 +17,10 @@
         maxlength="{{main.maxlength}}", minlength="{{main.minlength}}")
 
       .form-group
+        .btn-group.btn-group-justified
+          label.btn.btn-default(ng-model="main.addKurs.type", btn-radio="'sell'", ng-change="main.changeType(main.addKurs.type)") Продажа
+          label.btn.btn-default(ng-model="main.addKurs.type", btn-radio="'buy'", ng-change="main.changeType(main.addKurs.type)") Покупка
+      //
         .col-md-6
           .radio
             label
