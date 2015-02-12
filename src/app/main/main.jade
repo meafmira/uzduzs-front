@@ -9,16 +9,25 @@
 .container
   .col-md-6.col-md-offset-3
     p Сервис создан людьми и для людей. Поэтому, будьте человеком, не добавляйте неверные значения.
-    form(ng-submit="main.add(kurs)", ng-if="!main.isAdded")
+    form(ng-submit="main.add(main.addKurs)", ng-if="!main.isAdded")
       .form-group
         label.control-label Курс
-        input.form-control.input-lg(type="number", ng-model="kurs.kurs", required, min="{{main.min}}", max="{{main.max}}")
+        input.form-control.input-lg(type="number", ng-model="main.addKurs.kurs", required,
+        min="{{main.min}}", max="{{main.max}}",
+        maxlength="{{main.maxlength}}", minlength="{{main.minlength}}")
 
       .form-group
-        label.control-label Тип
-        select.form-control.input-lg(ng-model="kurs.type", required, ng-change="main.changeType(kurs.type)")
-          option(value="sell") Продажа
-          option(value="buy") Покупка
+        .col-md-6
+          .radio
+            label
+              input(type="radio", value="sell", ng-model="main.addKurs.type", ng-change="main.changeType(main.addKurs.type)")
+              | Продажа
+
+        .col-md-6
+          .radio
+            label
+              input(type="radio", value="buy", ng-model="main.addKurs.type", ng-change="main.changeType(main.addKurs.type)")
+              | Покупка
 
       button.btn.btn-primary.btn-block.btn-lg(type="submit") Добавить
     h2.text-center(ng-if="main.isAdded") Спасибо
