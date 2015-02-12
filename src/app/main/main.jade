@@ -1,18 +1,25 @@
 .jumbotron.text-center
   h1 Продажа: {{ main.kurs.sellAverage }}
   h1 Покупка: {{ main.kurs.buyAverage }}
+  p
+    span(ng-bind="main.kurs.todayCount")
+    |  человек(а)&nbsp;
+    a(ui-sref="main.date({ date: main.today })") сегодня
+  ui-view
 .container
   .col-md-6.col-md-offset-3
-    form(ng-submit="main.add(kurs)", ng-if="!main.isAdded")
+    p Сервис создан людьми и для людей. Поэтому, будьте человеком, не добавляйте неверные значения.
+    form(ng-submit="main.add(main.addKurs)", ng-if="!main.isAdded")
       .form-group
         label.control-label Курс
-        input.form-control.input-lg(type="number", ng-model="kurs.kurs", required, min="{{main.min}}", max="{{main.max}}")
+        input.form-control.input-lg(type="number", ng-model="main.addKurs.kurs", required,
+        min="{{main.min}}", max="{{main.max}}",
+        maxlength="{{main.maxlength}}", minlength="{{main.minlength}}")
 
       .form-group
-        label.control-label Тип
-        select.form-control.input-lg(ng-model="kurs.type", required, ng-change="main.changeType(kurs.type)")
-          option(value="sell") Продажа
-          option(value="buy") Покупка
+        .btn-group.btn-group-justified
+          label.btn.btn-default(ng-model="main.addKurs.type", btn-radio="'sell'", ng-change="main.changeType(main.addKurs.type)") Продажа
+          label.btn.btn-default(ng-model="main.addKurs.type", btn-radio="'buy'", ng-change="main.changeType(main.addKurs.type)") Покупка
 
       button.btn.btn-primary.btn-block.btn-lg(type="submit") Добавить
     h2.text-center(ng-if="main.isAdded") Спасибо

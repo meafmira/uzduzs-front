@@ -1,7 +1,11 @@
 class MainCtrl
   constructor: (@kurs, @Kurs, @localStorageService) ->
     added = @localStorageService.get 'added'
+    @today = moment().format('DD-MM-YYYY')
     @isAdded = false
+    @addKurs =
+      type: "sell"
+    @changeType "sell"
     if added?
       dateAdded = moment added, 'YYYY MM DD'
       today = moment()
@@ -16,6 +20,8 @@ class MainCtrl
   changeType: (type) ->
     @min = @kurs[type + 'Min']
     @max = @kurs[type + 'Max']
+    @minlength = @min.toString().length
+    @maxlength = @max.toString().length
 
 MainCtrl.$inject = [ 'kurs', 'Kurs', 'localStorageService' ]
 

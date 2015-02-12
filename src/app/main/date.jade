@@ -1,0 +1,12 @@
+.container
+  .col-md-6.col-md-offset-3
+    table.table.table-striped
+      tr
+        th Курс
+        th Тип
+        th Время
+
+      tr(ng-repeat="kurs in mainDate.kurses")
+        td(ng-bind="kurs.kurs")
+        td(ng-bind="kurs.type")
+        td(ng-bind="kurs.created_at | date:'shortTime'")

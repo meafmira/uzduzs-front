@@ -17,4 +17,4 @@ angular.module "kurs", ['ngAnimate',
     $urlRouterProvider.otherwise '/'
 
   .config (RestangularProvider) ->
-    RestangularProvider.setBaseUrl "http://kurs/api/v1"
+    RestangularProvider.setBaseUrl "https://usduzs.herokuapp.com/api/v1"
