@@ -20,18 +20,6 @@
         .btn-group.btn-group-justified
           label.btn.btn-default(ng-model="main.addKurs.type", btn-radio="'sell'", ng-change="main.changeType(main.addKurs.type)") Продажа
           label.btn.btn-default(ng-model="main.addKurs.type", btn-radio="'buy'", ng-change="main.changeType(main.addKurs.type)") Покупка
-      //
-        .col-md-6
-          .radio
-            label
-              input(type="radio", value="sell", ng-model="main.addKurs.type", ng-change="main.changeType(main.addKurs.type)")
-              | Продажа
-
-        .col-md-6
-          .radio
-            label
-              input(type="radio", value="buy", ng-model="main.addKurs.type", ng-change="main.changeType(main.addKurs.type)")
-              | Покупка
 
       button.btn.btn-primary.btn-block.btn-lg(type="submit") Добавить
     h2.text-center(ng-if="main.isAdded") Спасибо
