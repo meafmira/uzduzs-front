@@ -5,8 +5,10 @@
         th Курс
         th Тип
         th Время
+        th Место
 
       tr(ng-repeat="kurs in mainDate.kurses")
         td(ng-bind="kurs.kurs")
         td(ng-bind="kurs.type")
         td(ng-bind="kurs.created_at | date:'shortTime'")
+        td(ng-bind="kurs.place")
