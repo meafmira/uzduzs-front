@@ -1,5 +1,5 @@
 class MainCtrl
-  constructor: (@kurs, @Kurs, @localStorageService) ->
+  constructor: (@kurs, @Kurs, @localStorageService, @places) ->
     @added = @localStorageService.get 'added'
     @today = moment().format('DD-MM-YYYY')
     @isAdded = false
@@ -40,6 +40,6 @@ class MainCtrl
     @minlength = @min.toString().length
     @maxlength = @max.toString().length
 
-MainCtrl.$inject = [ 'kurs', 'Kurs', 'localStorageService' ]
+MainCtrl.$inject = [ 'kurs', 'Kurs', 'localStorageService', 'places' ]
 
 module.exports = MainCtrl

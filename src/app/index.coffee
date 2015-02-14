@@ -16,5 +16,20 @@ angular.module "kurs", ['ngAnimate',
 
     $urlRouterProvider.otherwise '/'
 
+  .run ($location) ->
+    mode = $location.search().__mode
+    if mode?
+      $.cookie('mode', mode)
+      $location.search('__mode', null)
+      location.reload()
+
+
   .config (RestangularProvider) ->
-    RestangularProvider.setBaseUrl "https://usduzs.herokuapp.com/api/v1"
+    mode = $.cookie('mode')
+    switch mode
+      when 'staging'
+        RestangularProvider.setBaseUrl "https://usduzs-staging.herokuapp.com/api/v1"
+      when 'local'
+        RestangularProvider.setBaseUrl "http://kurs/api/v1"
+      else
+        RestangularProvider.setBaseUrl "https://usduzs.herokuapp.com/api/v1"

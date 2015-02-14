@@ -1,6 +1,6 @@
 {
   "name": "usduzs-front",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "dependencies": {
     "browser-sync": "~1.7.1",
     "browserify": "^8.1.1",
