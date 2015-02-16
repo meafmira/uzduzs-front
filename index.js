@@ -2,6 +2,15 @@ var express = require('express');
 var app = express();
 var compression = require('compression');
 
+app.all(/.*/, function(req, res, next) {
+  var host = req.header("host");
+  if (!host.match(/^www\..*/i)) {
+    next();
+  } else {
+    res.redirect(301, "https://" + host);
+  }
+});
+
 app.use(compression());
 app.set('port', (process.env.PORT || 5000));
 app.use("/scripts", express.static(__dirname + "/dist/scripts"));
