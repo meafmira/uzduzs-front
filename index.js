@@ -3,11 +3,10 @@ var app = express();
 var compression = require('compression');
 
 app.all(/.*/, function(req, res, next) {
-  var host = req.header("host");
-  if (!host.match(/^www\..*/i)) {
-    next();
+  if (req.headers.host.match(/^www/) !== null ) {
+    res.redirect('http://' + req.headers.host.replace(/^www\./, '') + req.url);
   } else {
-    res.redirect(301, "https://" + host);
+    next();
   }
 });
 
