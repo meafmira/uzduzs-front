@@ -32,6 +32,8 @@
           btn-radio="'sell'", ng-change="main.changeType(main.addKurs.type)") Продажа
           label.btn.btn-default(ng-model="main.addKurs.type", ng-if="!main.isAddedBuy",
           btn-radio="'buy'", ng-change="main.changeType(main.addKurs.type)") Покупка
+        p.help-block Продажа: вы отдаете доллары, получаете нац. валюту. Покупка: вы отдаете нац. валюту, получаете доллары.
+          | Не добавляйте одно и то же значение в оба типа.
 
       button.btn.btn-primary.btn-block.btn-lg(type="submit") Добавить
     h2.text-center(ng-if="main.isAddedSell && main.isAddedBuy") Спасибо
