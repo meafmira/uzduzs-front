@@ -1,6 +1,6 @@
 .jumbotron.text-center
-  h1 Продажа: {{ main.kurs.sellAverage }}
-  h1 Покупка: {{ main.kurs.buyAverage }}
+  h1 Покупка: {{ main.kurs.sellAverage }}
+  h1 Продажа: {{ main.kurs.buyAverage }}
   p
     span(ng-bind="main.kurs.todayCount")
     |  человек(а)&nbsp;
@@ -32,7 +32,7 @@
           btn-radio="'sell'", ng-change="main.changeType(main.addKurs.type)") Продажа
           label.btn.btn-default(ng-model="main.addKurs.type", ng-if="!main.isAddedBuy",
           btn-radio="'buy'", ng-change="main.changeType(main.addKurs.type)") Покупка
-        p.help-block Продажа: вы отдаете доллары, получаете нац. валюту. Покупка: вы отдаете нац. валюту, получаете доллары.
+        p.help-block Покупка: вы отдаете доллары, получаете нац. валюту. Продажа: вы отдаете нац. валюту, получаете доллары.
           | Не добавляйте одно и то же значение в оба типа.
 
       button.btn.btn-primary.btn-block.btn-lg(type="submit") Добавить
