@@ -1,8 +1,9 @@
 class MainCtrl
-  constructor: (@kurs, @Kurs, @localStorageService, @places) ->
+  constructor: (@kurs, @Kurs, @localStorageService, @places, @$state) ->
     @added = @localStorageService.get 'added'
     @today = moment().format('DD-MM-YYYY')
     @isAdded = false
+    @mainPlace = (@localStorageService.get 'place') || { value: null, label: 'все местоположения' }
     @addKurs =
       type: "sell"
     if @added?
@@ -40,6 +41,15 @@ class MainCtrl
     @minlength = @min.toString().length
     @maxlength = @max.toString().length
 
-MainCtrl.$inject = [ 'kurs', 'Kurs', 'localStorageService', 'places' ]
+  editPlace: ->
+    @isEditingPlace = true
+    @mainPlace = null
+
+  changePlace: ($item, $model, $number) ->
+    @localStorageService.set 'place', $item
+    @editPlace = false
+    @$state.go @$state.$current, {}, { reload: true }
+
+MainCtrl.$inject = [ 'kurs', 'Kurs', 'localStorageService', 'places', '$state' ]
 
 module.exports = MainCtrl

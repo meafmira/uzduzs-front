@@ -1,7 +1,11 @@
 module.exports =
-  kurses: (Kurs, $stateParams) ->
+  kurses: (Kurs, $stateParams, localStorageService) ->
+    place = localStorageService.get 'place'
+    if !(place?)
+      place = value: null
+
     date = $stateParams.date
-    Kurs.get(date).then (kurses) ->
+    Kurs.get(date, { place: place.value }).then (kurses) ->
       kurses.map (kurs) ->
         kurs.type =
           switch kurs.type
