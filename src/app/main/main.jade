@@ -39,7 +39,8 @@
         label.control-label Местоположение
         input.form-control.input-lg(type="text",
         typeahead="place.value as place.label for place in main.places | filter:$viewValue | limitTo:10",
-        ng-model="main.addKurs.place")
+        ng-model="main.addKurs.place", ng-change="main.inputPlace()",
+        typeahead-on-select="main.selectPlace($item, $model, $number)")
 
       .form-group
         .btn-group.btn-group-justified

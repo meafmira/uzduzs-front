@@ -2,7 +2,7 @@
   "name": "usduzs-front",
   "version": "0.3.0",
   "dependencies": {
-    "browser-sync": "~1.7.1",
+    "browser-sync": "^1.7.3",
     "browserify": "^8.1.1",
     "chalk": "~0.5.1",
     "coffeeify": "^1.0.0",

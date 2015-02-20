@@ -8,7 +8,6 @@ module.exports =
   places: (Kurs) ->
     Kurs.get('places').then (places) ->
       result = places.map (place) ->
-        console.log place
         value: place.place
         label: place.place
 

@@ -9,6 +9,8 @@ angular.module "kurs", ['ngAnimate',
                         'ui.bootstrap',
                         'angular-loading-bar',
                         'LocalStorageModule',
+                        'geolocation',
+                        'uiGmapgoogle-maps',
                         main.name ]
   .config ($stateProvider, $urlRouterProvider, $locationProvider) ->
 
@@ -33,3 +35,9 @@ angular.module "kurs", ['ngAnimate',
         RestangularProvider.setBaseUrl "http://kurs/api/v1"
       else
         RestangularProvider.setBaseUrl "https://usduzs.herokuapp.com/api/v1"
+
+  .config (uiGmapGoogleMapApiProvider) ->
+    uiGmapGoogleMapApiProvider.configure
+      key: 'AIzaSyAf2DRqv-Ao9RfGNwF7a1QMIJ2LF_sleAA',
+      v: '3.17',
+      libraries: 'places'
